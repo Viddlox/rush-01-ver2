@@ -1,5 +1,8 @@
 #include "rush01.h"
 
+//finds 4 clue edges and checks it against the position within the 2d grid. 
+//Places a 1 next to every 4 found (2 max).
+
 void	find4_fill1(int board[4][4], int *input, int pos)
 {
 	int	fill;
@@ -27,6 +30,11 @@ void	find4_fill1(int board[4][4], int *input, int pos)
 		pos++;
 	}
 }
+
+//After filling 4s, we find the position of 4s in the map and fill the
+// zero spaces) with ascending numbers (fill). 
+//checking against the clue arr each time
+//does this for the first half then second half for the last 4.
 
 void	find4_fill0(int board[4][4], int *input)
 {
@@ -56,6 +64,9 @@ void	find4_fill0(int board[4][4], int *input)
 	find4_fill1(board, input, pos);
 }
 
+//Iterates through the 2d grid and checks the position of 1 clues at different ranges in the array.
+//Fills a 4 next to every adjacent 1 (4 max)
+
 void	find1_fill4(int board[4][4], int *input)
 {
 	int	i;
@@ -83,6 +94,8 @@ void	find1_fill4(int board[4][4], int *input)
 	}
 	find4_fill0(board, input);
 }
+
+//zeroes out the whole 4 x 4 2d grid. Then starts filling the "pre-solvable" values.
 
 int	empty_board(int *input)
 {

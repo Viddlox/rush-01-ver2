@@ -1,6 +1,8 @@
 #include "rush01.h"
 
-int	check_syntax(char *input)
+//checks the amount of 4s and 1s, making sure 4s cannot exceed 2 and 1s cannot exceed 4 in a 4 x 4 grid.
+
+int	check_rules(char *input)
 {
 	int	i;
 	int	error;
@@ -28,6 +30,10 @@ int	check_syntax(char *input)
 	return (1);
 }
 
+//checks if the clue value is between 1 and 4,  if there are spaces between each value.
+//And that if the next value is NULL and the previous value is a space (last value).
+//If true, will convert char to int and pass it into an integer array *input.
+
 int	check_input(char *arg, int *input)
 {
 	int	i;
@@ -35,7 +41,7 @@ int	check_input(char *arg, int *input)
 
 	i = 0;
 	out = 0;
-	if (check_syntax(arg) == 1)
+	if (check_rules(arg) == 1)
 	{
 		while (arg[i])
 		{
@@ -56,6 +62,8 @@ int	check_input(char *arg, int *input)
 	}
 	return (0);
 }
+
+//main function parses clue edges into single array
 
 int	main(int ac, char **av)
 {

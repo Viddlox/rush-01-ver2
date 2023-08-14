@@ -52,6 +52,8 @@ int	check_row(int board[4][4], int row, int num)
 	return (1);
 }
 
+//checks for duplicates, if there are change the tower cell and try again
+
 int	check_dupe(int board[4][4], int r, int c, int num)
 {
 	if (((check_row(board, r, num)) && (check_col(board, c, num))
@@ -61,6 +63,10 @@ int	check_dupe(int board[4][4], int r, int c, int num)
 	}
 	return (0);
 }
+
+//look 0 finds if ther are still empty positions on the map. 
+//check board checks the board for the tower cells and see if the number of visible towers between the max and the clue edge match values
+//if all positions have been solved and passed the preceding function conditions, we return 1 and print the grid
 
 int	solve(int board[4][4], int *input)
 {
